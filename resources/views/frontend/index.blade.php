@@ -1,0 +1,11 @@
+@extends('frontend.app')
+@section('title','')
+@section('home_select','active')
+@section('content')
+@include('frontend.partials.homeslide')
+@include('frontend.partials.homeimigration')
+@include('frontend.homeservice')
+@include('frontend.partials.homevisa')
+@include('frontend.homecourse')
+@include('frontend.partials.homecontact')
+@endsection

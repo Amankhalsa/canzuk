@@ -1,0 +1,11 @@
+@extends('frontend.app')
+@section('title','About Us')
+@section('about_select','active')
+@section('content')
+@include('frontend.partials.breadcrumbs')
+@include('frontend.partials.aboutpart1')
+@include('frontend.aboutbrochure')
+@include('frontend.aboutclients')
+@include('frontend.abouthistory')
+@include('frontend.abouttestimonial')
+@endsection
