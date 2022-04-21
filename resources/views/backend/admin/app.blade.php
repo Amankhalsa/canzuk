@@ -49,6 +49,12 @@
     <ul class="navbar-nav ml-auto">
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item">
+        <a class="nav-link" href="{{url('/')}}" target="_blank">
+          <i class="fas fa-globe">&nbsp;</i>
+       Website
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link">
           <i class="fas fa-user">&nbsp;</i>
           {{ Auth::user()->name}}

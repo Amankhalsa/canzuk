@@ -18,6 +18,12 @@
   <title>:: Canzuk star ::</title>
   </head>
 <body>
+  @php 
+  $address = App\Models\Contact::first();
+  $logo = App\Models\logoSeting::first();
+
+
+  @endphp
   <header>
     <div class="header_top_Col">
       <div class="container-fluid">
@@ -27,15 +33,16 @@
               <ul>
                 <li>
                   <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                  canzukstaroverseas@gmail.com
+                  {{ $address->email}}
+               
                 </li>
                 <li>
                   <a href="#"><i class="fa-solid fa-clock"></i></a>
-                  Mon - Sat: 9:00 am - 05.00pm
+                  {{ $address->time}}
                 </li>
                 <li>
                   <a href="#"><i class="fa-solid fa-location-dot"></i></a>
-                  Near Chaman Farm, Ladwa Road, Shahbad(M)
+                  {{ $address->address}}
                 </li>
               </ul>
             </div>
@@ -64,7 +71,7 @@
           <div class="col-auto">
             <div class="logo_Col">
                 <a href="{{url('/')}}">
-              <img src="assets/images/logo.png" alt="">
+              <img src="{{$logo->logo_img}}" alt="">
               </a>
             </div>
           </div>
@@ -118,7 +125,7 @@
         </div>
         <ul>
           <li class="@yield('home_select')">
-            <a href="{{url('')}}">Home</a>
+            <a href="{{url('/')}}">Home</a>
           </li>
           <li class="@yield('about_select')">
             <a href="about">abouts us</a>
@@ -135,6 +142,9 @@
   </header>
   @yield('content')
   <section>
+    @php
+    $home_content = App\Models\HomeContent::first();
+    @endphp
     <div class="footer_section">
       <div class="container">
         <div class="footer_color_Col">>
@@ -144,11 +154,11 @@
                 <div class="forter_title">
                   <h3>Who<b>We are!</b></h3>
                   <div class="text_p_title">
-                    <p>We are amongst the Best Study Visa & Immigration Consultancy in shahbad with a solid track record.</p>
+                    <p>{!!html_entity_decode($home_content->whoweare)!!}</p>
                   </div>
                   <div class="strong_title">
                     <strong>Open Hours:</strong><br>
-                    Mon – Sat: 9 am – 5 pm,<br>
+                    {{ $address->time}}<br>
                     Sunday: CLOSED
                   </div>
                 </div>
@@ -159,7 +169,7 @@
                 <div class="forter_title">
                   <h3>mission</h3>
                   <div class="text_p_title">
-                    <p>Our mission is to provide the best immigration services in India at affordable prices. We always try to provide World top class clients for our students in world-class institutions. </p>
+                    <p>{!!html_entity_decode($home_content->mission)!!} </p>
                   </div>
                   <div class="social_Col">
                     <ul>
@@ -188,16 +198,15 @@
                   <ul>
                     <li>
                       <span><i class="fa-solid fa-location-dot"></i></span>
-                      <span>Near Chaman Farm, Ladwa Road, Shahbad </span>
+                      <span> {{ $address->address}} </span>
                     </li>
                     <li>
                       <span><i class="fa-solid fa-phone mt-3"></i></span>
-                      <span>+91 6284181807 </span>
+                      <span>+91 {{ $address->phone}}</span>
                     </li>
                     <li>
                       <span><i class="fa-solid fa-envelope mt-3"></i></span>
-                      <span>	canzukstaroverseas
-                        @gmail.com </span>
+                      <span>	 {{ $address->email}}</span>
                     </li>
                   </ul>
 

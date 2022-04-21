@@ -29,10 +29,13 @@ class AdminController extends Controller
     }
     function completed()
     {
-        return view('backend.completed.index');
+
+        $done_data['completed_inquries'] = Inquiry::latest()->where('status','=','1')->get();
+        return view('backend.completed.index',$done_data);
     }
     function rejected()
     {
-        return view('backend.rejected.index');
+        $reject_data['rejected_inquries'] = Inquiry::latest()->where('status','=','2')->get();
+        return view('backend.rejected.index',$reject_data);
     }
 }

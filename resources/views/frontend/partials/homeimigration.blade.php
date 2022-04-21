@@ -1,11 +1,16 @@
 <section>
+  @php 
+  $address = App\Models\Contact::first();
+  $home_content = App\Models\HomeContent::first();
+
+  @endphp
     <div class="Immigration_Col space_div" id="counter">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6 animate__animated animate__bounceInLeft animate__slow">
             <div class="img_Col">
               <div class="img_Col_full">
-                <img src="assets/images/img.jpg" alt="" class="img-fluid">
+                <img src="{{asset($home_content->image)}}" alt="" class="img-fluid">
                 <div class="top_div">
                   <div class="row row align-items-center g-2">
                     <div class="col-auto">
@@ -29,16 +34,16 @@
               <div class="sub_title">
                 <h6>Who we are</h6>
                 <h3>
-                  <span> Welcome to Canzuk Star Immigration Consultants</span>
+                  <span>{!!html_entity_decode($home_content->title)!!} </span>
                 </h3>
-                <p>We are amongst the Best Study Visa & Immigration Consultancy in shahbad with a solid track record. we are committed to offer honest, accurate and complete services related to overseas education and settlement .</p>
+                <p>{!!html_entity_decode($home_content->description)!!}</p>
               </div>
             </div>
             <div class="list_items">
               <div class="list_meta">
                 <div class="list_doc animate__animated  animate__lightSpeedInRight animate__slower	">
                   <b>Company Profile</b>
-                  – Near Chaman Farm, Ladwa Road,Shahbad.
+                  – {{ $address->address}}
                 </div>
               </div>
             </div>
@@ -46,7 +51,7 @@
               <div class="list_meta">
                 <div class="list_doc animate__animated  animate__lightSpeedInRight animate__slower	">
                   <b>Consultants</b>
-                  – Book your Expert Counselling Session @ Shahbad Branch +91 6284181807
+                  –{!!html_entity_decode($home_content->consultants)!!}  {{ $address->phone}}
                 </div>
               </div>
             </div>

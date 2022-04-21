@@ -1,4 +1,7 @@
 <section>
+  @php 
+  $address = App\Models\Contact::first();
+  @endphp
     <div class="Get_in_COL">
       <div class="container">
         <div class="row align-items-center">
@@ -93,7 +96,7 @@
                   <div class="col">
                     <div class="text_calling">
                       <p>Call us for information</p>
-                      <strong>+91 6284181807</strong>
+                      <strong>+91 {{ $address->phone}}</strong>
                     </div>
                   </div>
                   <div class="col  gy-3">

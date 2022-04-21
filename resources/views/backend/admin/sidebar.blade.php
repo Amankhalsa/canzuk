@@ -48,14 +48,32 @@
           </li>
                <li class="nav-item">
             <a href="{{ route('manage.front.logo')}}" class="nav-link @yield('logo_select')">
-              <i class="nav-icon fas fa-sliders-h"></i>
+              <i class="nav-icon fas fa-image"></i>
               <p>Manage logo</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('manage.front.slider')}}" class="nav-link @yield('slider_select')">
-              <i class="nav-icon fas fa-sliders-h"></i>
+              <i class="nav-icon far fa-caret-square-right"></i>
               <p>Manage slider</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('view.contact_address')}}" class="nav-link @yield('contact_select')">
+              <i class="nav-icon 	fas fa-angle-double-right"></i>
+              <p>Manage Contact</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('view.home_content')}}" class="nav-link @yield('home_content_select')">
+              <i class="nav-icon fas fa-check-square"></i>
+              <p>Manage Home data </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('view.home_services')}}" class="nav-link @yield('home_services')">
+              <i class="nav-icon fas fa-check-square"></i>
+              <p>Manage Services </p>
             </a>
           </li>
         </ul>

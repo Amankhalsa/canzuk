@@ -1,4 +1,7 @@
   <section>
+    @php 
+    $address = App\Models\Contact::first();
+    @endphp
     <div class="best_service_Col">
       <div class="container">
         <div class="row">
@@ -225,7 +228,7 @@
                       </div>
                     </div>
                     <div class="col locetionCoL_icon">
-                      <span> Near Chaman Farm, Ladwa Road, Shahbad</span>
+                      <span>  {{ $address->address}}</span>
                     </div>
                   </div>
                   <div class="row align-items-center g-3">
@@ -235,7 +238,7 @@
                       </div>
                     </div>
                     <div class="col locetionCoL_icon">
-                      <span>+91 6284181807</span>
+                      <span>+91 {{ $address->phone}}</span>
                     </div>
                   </div>
                   <div class="row align-items-center g-3">
@@ -245,7 +248,7 @@
                       </div>
                     </div>
                     <div class="col locetionCoL_icon">
-                      <span>canzukstaroverseas@gmail.com</span>
+                      <span>{{ $address->email}}</span>
                     </div>
                   </div>
                   <div class="contect_text">

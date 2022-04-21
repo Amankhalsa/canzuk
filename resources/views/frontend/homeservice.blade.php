@@ -1,12 +1,15 @@
 <section>
+  @php 
+   $get_services = App\Models\Servies::first();
+  @endphp
     <div class="servies_col">
       <div class="text-center servive_text">
         <h6><span>
             <img src="assets/images/affter.png" alt="">
-          </span>Services
+          </span>{{$get_services->name}}
           <span><img src="assets/images/before.png" alt=""></span>
         </h6>
-        <h3>The fields on which <br>we give servies </h3>
+        <h3>{{$get_services->heading}}</h3>
       </div>
       <div class="container">
         <div class="row mt-5">

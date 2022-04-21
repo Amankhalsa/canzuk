@@ -1,4 +1,7 @@
 <section>
+  @php 
+  $address = App\Models\Contact::first();
+  @endphp
     <div class="countries_col">
       <div class="text-center cuntries_text">
         <img src="assets/images/be.png" alt="">Countries<img src="assets/images/affter1.png" alt="">
@@ -14,15 +17,15 @@
             <div class="ct-point-meta">
               <div class="ct-point-phone">
                  <b>Phone:</b>
-                  +91 6284181807
+                  +91 {{ $address->phone}}
               </div>
               <div class="ct-point-email">
                 <b>Email:</b>
-                 canzukstaroverseas@gmail.com
+                {{ $address->email}}
               </div>
               <div class="ct-point-address">
                 <b>Address:</b>
-                 Near chaman Farm, ladwa road, shahbad.
+                {{ $address->address}}
               </div>
             </div>
           </div>
@@ -31,15 +34,15 @@
             <div class="ct-point-meta">
               <div class="ct-point-phone">
                  <b>Phone:</b>
-                  +91 6284181807
+                  +91 {{ $address->phone}}
               </div>
               <div class="ct-point-email">
                 <b>Email:</b>
-                 canzukstaroverseas@gmail.com
+                {{ $address->email}}
               </div>
               <div class="ct-point-address">
                 <b>Address:</b>
-                  Near chaman Farm, ladwa road, shahbad.
+                {{ $address->address}}
               </div>
             </div>
           </div>
@@ -48,15 +51,15 @@
             <div class="ct-point-meta">
               <div class="ct-point-phone">
                  <b>Phone:</b>
-                  +91 6284181807
+                  +91 {{ $address->phone}}
               </div>
               <div class="ct-point-email">
                 <b>Email:</b>
-                 canzukstaroverseas@gmail.com
+                {{ $address->email}}
               </div>
               <div class="ct-point-address">
                 <b>Address:</b>
-                 Near chaman Farm, ladwa road, shahbad.
+                {{ $address->address}}
               </div>
             </div>
           </div>
@@ -65,15 +68,15 @@
             <div class="ct-point-meta">
               <div class="ct-point-phone">
                  <b>Phone:</b>
-                  +91 6284181807
+                  +91  {{ $address->phone}}
               </div>
               <div class="ct-point-email">
                 <b>Email:</b>
-                 canzukstaroverseas@gmail.com
+                {{ $address->email}}
               </div>
               <div class="ct-point-address">
                 <b>Address:</b>
-               Near chaman Farm, ladwa road, shahbad.
+                {{ $address->address}}
               </div>
             </div>
           </div>
@@ -82,15 +85,15 @@
             <div class="ct-point-meta">
               <div class="ct-point-phone">
                  <b>Phone:</b>
-                  +91 6284181807
+                  +91  {{ $address->phone}}
               </div>
               <div class="ct-point-email">
                 <b>Email:</b>
-                 canzukstaroverseas@gmail.com
+                {{ $address->email}}
               </div>
               <div class="ct-point-address">
                 <b>Address:</b>
-                  Near chaman Farm, ladwa road ,shahbad.
+                {{ $address->address}}
               </div>
             </div>
           </div>

@@ -28,39 +28,52 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">@yield('page_title')</h3>
+                <h3>Total Completed :{{count($completed_inquries)}}</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Sr. No.</th>
-                    <th>Category Name</th>
-                    <th>Slug</th>
+                    <th>Sr.No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Created Date</th>
                     <th>Status</th>
-                    <th>Action</th>
+                
+
+
+                    {{-- <th>Action</th> --}}
                   </tr>
                   </thead>
                   <tbody>
+                    @foreach($completed_inquries as $key => $done_values)
                   <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$key+1}}</td>
+                    <td>{{$done_values->name}}</td>
+                    <td>{{$done_values->email}}</td>
+                    <td>{{$done_values->phone}}</td>
+                    <td> {{Carbon\Carbon::parse($done_values->created_at)->diffForHumans()}}</td>
                     <td>
-                   
+                      @if($done_values->status == 1)
+
+                      <span class="badge badge-pill badge-success">Completed</span>
+                  @else
+                      <span class="badge badge-pill badge-danger">Pending</span>
+  
+                  @endif
+                 
+                    
+                    
                     </td>
-                    <td><a href=""><i class="fa fa-edit"></i>&nbsp;&nbsp;</a><a href=""><i class="fa fa-trash-alt"></i></a></td>
+
+                  
+                    {{-- <td><a href=""><i class="fa fa-edit"></i>&nbsp;&nbsp;</a><a href=""><i class="fa fa-trash-alt"></i></a></td> --}}
                   </tr>
+                  @endforeach
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Sr. No.</th>
-                    <th>Category Name</th>
-                    <th>Slug</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                  </tfoot>
+           
                 </table>
               </div>
               <!-- /.card-body -->

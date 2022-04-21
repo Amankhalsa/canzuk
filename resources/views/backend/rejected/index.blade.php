@@ -28,39 +28,45 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">@yield('page_title')</h3>
+                <h3 class=" py-2 px-2 ">Total Inquries : <b> {{count($rejected_inquries)}}</b></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Sr. No.</th>
-                    <th>Category Name</th>
-                    <th>Slug</th>
+                    <th>Sr.No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Created Date</th>
+
                     <th>Status</th>
-                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
+
+                    @foreach($rejected_inquries as $key => $reject_value)
                   <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
+                    <td>{{$key+1}}</td>
+                    <td> {{$reject_value->name}}</td>
+                    <td> {{$reject_value->email}}</td>
+                    <td> {{$reject_value->phone}}</td>
+                    <td> {{Carbon\Carbon::parse($reject_value->created_at)->diffForHumans()}}</td>
                    
-                    </td>
-                    <td><a href=""><i class="fa fa-edit"></i>&nbsp;&nbsp;</a><a href=""><i class="fa fa-trash-alt"></i></a></td>
+
+                    <td>       
+                        @if($reject_value->status == 2)
+                        <span class="badge badge-pill badge-danger">Rejected</span>
+                        @endif
+                </td>
+
+                 
+                    {{-- <td><a href=""><i class="fa fa-edit"></i>&nbsp;&nbsp;</a><a href=""><i class="fa fa-trash-alt"></i></a></td> --}}
+                    @endforeach
                   </tr>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Sr. No.</th>
-                    <th>Category Name</th>
-                    <th>Slug</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                  </tfoot>
+           
                 </table>
               </div>
               <!-- /.card-body -->

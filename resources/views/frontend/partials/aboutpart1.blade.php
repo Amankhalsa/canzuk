@@ -3,6 +3,9 @@
     <div class="about-part1">
       <div class="container">
         <div class="row">
+          @php 
+          $address = App\Models\Contact::first();
+          @endphp
           <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="welcome-part">
               <h1>Welcome to "CANZUK STAR" OVERSEAS Pvt. Ltd</h1>
@@ -42,7 +45,7 @@
                 <div class="about_call">
                   <p>"call to ask"
                     <a href="#">any question</a>
-                    <span>+91-6284181807 &nbsp;</span>
+                    <span>+91-{{ $address->phone}} &nbsp;</span>
                   </p>
                 </div>
               </div>
