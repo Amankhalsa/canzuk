@@ -1,11 +1,15 @@
 <section>
   @php 
   $address = App\Models\Contact::first();
+  $get_support_text = App\Models\SupportText::first();
+
   @endphp
     <div class="countries_col">
       <div class="text-center cuntries_text">
         <img src="assets/images/be.png" alt="">Countries<img src="assets/images/affter1.png" alt="">
-        <h3><span>Immigration & Visa are allowed<br> some Countries</span></h3>
+        <h3><span>
+          {!!html_entity_decode($get_support_text->country_title)!!}	  
+        </span></h3>
       </div>
       <div class="container">
         <div class="ct-point-image">

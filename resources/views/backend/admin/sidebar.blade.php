@@ -72,10 +72,25 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('view.home_services')}}" class="nav-link @yield('home_services')">
-              <i class="nav-icon fas fa-check-square"></i>
+              <i class="nav-icon fas fa-certificate"></i>
               <p>Manage Services </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('view.support_text')}}" class="nav-link @yield('below_footer')">
+              <i class="nav-icon far fa-building"></i>
+              <p>After  Services Text </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('view.about_data')}}" class="nav-link @yield('about_content')">
+              <i class="nav-icon far fa-building"></i>
+              <p>About us  Text </p>
+            </a>
+          </li>
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

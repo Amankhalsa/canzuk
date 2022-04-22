@@ -5,19 +5,23 @@
         <div class="row">
           @php 
           $address = App\Models\Contact::first();
+          $About_Data  = App\Models\AboutData ::first();
+
           @endphp
           <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="welcome-part">
-              <h1>Welcome to "CANZUK STAR" OVERSEAS Pvt. Ltd</h1>
+              <h1>   {!!html_entity_decode($About_Data->title)!!}</h1>
               <div class="welcome_paragraph">
-                <p><strong class="c-star">Canzuk Star Overseas</strong> is a company with the best and the leading Immigration Consultants in India, specially focused on helping the aspiring candidates to accomplish their dream of immigration
-                  to<strong> Canada, Australia, New Zealand,UK OR
-                    USA </strong>any other countries. So, if you’re looking for the best and the leading Immigration Consultants, your search for top-notch and experienced professionals ends with Canzuk Star Overseas.</p>
-                <p class="w_p">With more than a decade of experience, we have dealt with several stumbling blocks to establish ourselves as a trusted name in the immigration terrain. We strongly believe in the fact that our clients are our partners
-                  in success and
-                  offers them unmatched support and expert guidance throughout. So, if you are looking for immigration, consult our well-versed team of the best immigration experts and get answers to all your visa-related queries without any fuss.
-                  Over
-                  the years, we’ve helped a huge clientele from a diverse spectrum of nationalities from all across the globe</p>
+                <p>
+
+
+                  {!!html_entity_decode($About_Data->para1)!!}
+                </p>
+                <p class="w_p">
+
+                  {!!html_entity_decode($About_Data->para2)!!}
+
+                </p>
               </div>
             </div>
 
@@ -50,7 +54,7 @@
                 </div>
               </div>
               <div class="about-gap">
-                <img src="assets/images/about-gap.png" alt="">
+                <img src="{{asset('assets/images/about-gap.png')}}" alt="">
               </div>
               <div class="about-sign">
                 <h3>Karan Verma & Kunal Kumar Verma</h3>
@@ -62,7 +66,7 @@
 
           <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
             <div class="welcome-img text-md-center">
-              <img src="assets/images/about1.png" alt="" class="img-fluid">
+              <img src="{{asset($About_Data->image)}}" alt="" class="img-fluid">
             </div>
           </div>
         </div>

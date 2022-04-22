@@ -9,6 +9,7 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeAboutController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AboutController;
 
 
 /*
@@ -149,6 +150,24 @@ Route::group(['prefix'=>'admin/home-content', 'middleware'=>['auth','isAdmin']],
 
 });
 
+// home page content 
+Route::group(['prefix'=>'admin/support-text', 'middleware'=>['auth','isAdmin']], function(){
+    Route::controller(HomeAboutController::class)->group(function () {
+        // view_home_contact
+        Route::get('view','view_support_text')->name('view.support_text');
+        //  home_data_store
+           Route::post('store','support_text_store')->name('store.support_text');
+        //   edit 
+           Route::get('edit/{id}','support_data_edit')->name('edit.support_text');
+        // update 
+           Route::post('update/{id}','support_data_update')->name('update.support_text');
+        // delete 
+           Route::get('delete/{id}','delete_support_text')->name('delete.support_text');
+
+    });
+
+});
+
 
 Route::group(['prefix'=>'admin/home-services', 'middleware'=>['auth','isAdmin']], function(){
     Route::controller(ServiceController::class)->group(function () {
@@ -157,14 +176,34 @@ Route::group(['prefix'=>'admin/home-services', 'middleware'=>['auth','isAdmin']]
         // // home_data_store
            Route::post('store','home_services_store')->name('store.home.services');
         // //    // // //  edit 
-        //    Route::get('edit/{id}','home_data_edit')->name('edit.home.content');
+           Route::get('edit/{id}','home_services_edit')->name('edit.home.services');
         // //    // // //  update 
-        //    Route::post('update/{id}','home_data_update')->name('update.home.content');
+           Route::post('update/{id}','home_services_update')->name('update.home.services');
         // //    // // //  delete 
-        //    Route::get('delete/{id}','delete_home_data')->name('delete.homedata');
+           Route::get('delete/{id}','delete_home_services')->name('delete.home.services');
 
     });
 
 });
 
 
+// ====================== about page routes ======================
+
+
+
+Route::group(['prefix'=>'admin/about-us', 'middleware'=>['auth','isAdmin']], function(){
+    Route::controller(AboutController::class)->group(function () {
+        // view_home_contact
+           Route::get('view','view_about_data')->name('view.about_data');
+        // // // home_data_store
+           Route::post('store','about_data_store')->name('store.about_data');
+        // // //    // // //  edit 
+           Route::get('edit/{id}','data_store_edit')->name('edit.about_data');
+        // // //    // // //  update 
+           Route::post('update/{id}','data_store__update')->name('update.about_data');
+        // // //    // // //  delete 
+        //    Route::get('delete/{id}','delete_home_services')->name('delete.home.services');
+
+    });
+
+});

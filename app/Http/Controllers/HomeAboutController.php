@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\HomeContent;
+use App\Models\SupportText;
 use Carbon\Carbon; 
 use Image;
+
+
 class HomeAboutController extends Controller
 {
     //
@@ -139,5 +142,79 @@ class HomeAboutController extends Controller
             );
             return  redirect()->route('view.home_content')->with($notification);
     }
+
+
+    // ================================= support text ==========================
+
+    public function view_support_text(){
+
+        $get_data['support_data'] = SupportText::get();
+
+        return view('backend.support_footer.view',$get_data);
+    }
+
+    // store support and country data 
+    public function support_text_store(Request $request){   
+                $request->validate([
+                    'country_title' =>'required',
+                    'country_title_2' =>'required',
+                    'description' =>'required',
+                    'get_in_touch' =>'required',
+                    'side_description' =>'required',
+                    ]);
+        $store_support_text = new  SupportText();
+        $store_support_text->country_title        = $request->country_title;
+        $store_support_text->country_title_2      = $request->country_title_2;
+        $store_support_text->description          = $request->description;
+        $store_support_text->get_in_touch         = $request->get_in_touch;
+        $store_support_text->side_description     = $request->side_description;
+        $store_support_text->save();
+            
+            $notification = array(
+            'message' => 'Data Inserted successfully',
+            'alert-type' => 'success'
+            );
+            return  redirect()->back()->with($notification);
+
+    }
+
+    // ================ edit support data ==================
+                public function support_data_edit($id){
+
+              $edit_data['support_data_edit'] = SupportText::find($id);
+
+            return view('backend.support_footer.edit',$edit_data);
+
+                }
+            // update support data 
+            public function support_data_update(Request $request, $id){
+              
+                $update_data = SupportText::find($id);
+          
+                $update_data->country_title        = $request->country_title;
+                $update_data->country_title_2      = $request->country_title_2;
+                $update_data->description          = $request->description;
+                $update_data->get_in_touch         = $request->get_in_touch;
+                $update_data->side_description     = $request->side_description;
+                $update_data->save();
+                    
+                    $notification = array(
+                    'message' => 'Data updated successfully',
+                    'alert-type' => 'info'
+                    );
+                    return  redirect()->route('view.support_text')->with($notification);
+
+            }
+            // trash delete 
+            public function delete_support_text($id){
+                $delete_data = SupportText::find($id);
+                $delete_data->delete();
+                $notification = array(
+                    'message' => 'Data Deleted successfully',
+                    'alert-type' => 'error'
+                    );
+                    return  redirect()->route('view.support_text')->with($notification);
+
+            }
 
 }

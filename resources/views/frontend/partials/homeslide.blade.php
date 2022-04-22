@@ -3,7 +3,7 @@
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           @php
-       $slider = DB::table('sliders')->get();
+       $slider = App\Models\Slider::get();
 
           @endphp
           {{-- swipper  --}}

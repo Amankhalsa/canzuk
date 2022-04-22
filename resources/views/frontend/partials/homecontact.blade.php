@@ -1,6 +1,8 @@
 <section>
   @php 
   $address = App\Models\Contact::first();
+  $get_support_text = App\Models\SupportText::first();
+
   @endphp
     <div class="Get_in_COL">
       <div class="container">
@@ -9,7 +11,10 @@
             <div class="get_in_text">
               Get in touch
               <span></span>
-              <h3>Don’t hasitate to contact with us for inquries!</h3>
+              <h3>
+              
+                {!!html_entity_decode($get_support_text->get_in_touch)!!}	
+              </h3>
             </div>
             <!--form start -->
             <form action="{{route('store.inquries')}}" method="post" >
@@ -75,7 +80,9 @@
             </div>
           
             <div class="form_Btn">
-              <button type="submit" class="form_style"><i class="fa-solid fa-paper-plane"></i>Get a Quote</button>
+              <button type="submit" class="form_style">
+                <i class="fa-solid fa-paper-plane"></i>
+                Get a Quote</button>
             </div>
             
               <!--form end -->
@@ -83,7 +90,7 @@
           <div class="col-md-6 col-lg-6 col-12">
             <div class="space_div_cover">
               <div class="form_content_text">
-                <h6>Our offices are located on the traditional, unceded and occupied territories of the Coast Salish and Sto:lo peoples, including the territories </h6>
+                <h6>{!!html_entity_decode($get_support_text->side_description)!!}</h6>
               </div>
               <div class="white_div"></div>
               <div class="mail_type_box">
@@ -101,7 +108,7 @@
                   </div>
                   <div class="col  gy-3">
                     <div class="calling_mail">
-                      <a href="mailto:canzukstaroverseas @gmail.com" class="mail_BTN"> <i class="fa-solid fa-envelope"></i>mail us </a>
+                      <a href="mailto:{{$address->email}}" class="mail_BTN"> <i class="fa-solid fa-envelope"></i>mail us </a>
                     </div>
                   </div>
                 </div>

@@ -81,13 +81,13 @@
                 
                       <td> 
 
-                        <a href="{{route('edit.home.content',$value->id)}}">
+                        <a href="{{route('edit.home.services',$value->id)}}">
                         <button class="btn btn-light" style="margin-left: 5px;" type="submit">
                           <i class="fa fa-edit" style="font-size: 15px; color:green;"></i>
                         </button>
                       </a>
                           <!-- delete -->
-                          <a href="{{route('delete.homedata' ,$value->id)}}" id="delete" >
+                          <a href="{{route('delete.home.services' ,$value->id)}}" id="delete" >
                           <button class="btn btn-light" style="margin-left: 5px;" type="submit">
                             <i class="fa fa-trash-alt" style="font-size: 15px; color:rgb(198, 0, 0);"></i>
                           </button></a>
@@ -154,6 +154,8 @@
                 @error('icon')
                 <span class="text-danger"> {{$message}}</span>
                 @enderror  
+                <span>Click here:
+                  <a href="https://www.w3schools.com/icons/fontawesome5_icons_images.asp" target="_blank"> for More icons</a></span>
                 </div>
               {{-- icon  --}}
 
