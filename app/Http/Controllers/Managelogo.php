@@ -24,7 +24,7 @@ class Managelogo extends Controller
     public function frontend_store_logo(Request $request){
         // dd($request->all());
    $request->validate([
-            'logo_img' =>'required',
+            'logo_img' =>'required|image|mimes:jpg,png,jpeg,svg,webp|max:4096',
             ]);
          // $old_image = $request->old_image;
         if ($request->file('logo_img')) {

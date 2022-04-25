@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeAboutController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\OurServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -224,6 +225,29 @@ Route::group(['prefix'=>'admin/social-links', 'middleware'=>['auth','isAdmin']],
 
       Route::get('active/{id}','active_status')->name('active_aocial_status');
       Route::get('inactive/{id}','inactive_status')->name('inactive_aocial_status');
+
+
+   });
+
+});
+
+
+//manage our services page data 
+Route::group(['prefix'=>'admin/manage/our-services', 'middleware'=>['auth','isAdmin']], function(){
+   Route::controller(OurServicesController::class)->group(function () {
+       // view_home_contact
+          Route::get('view','view_our_services')->name('view.our.services_page');
+      //  // home_data_store
+         Route::post('store','social_our_services')->name('store.our_services');
+      //  // edit 
+         Route::get('edit/{id}','our_services_edit')->name('edit.our_services');
+      //  // update 
+         Route::post('update/{id}','our_services_update')->name('update.our_services');
+      //  // delete 
+      Route::get('delete/{id}','delete_our_services')->name('delete.our_services');
+
+      Route::get('active/{id}','active_status')->name('active_our_services');
+      Route::get('inactive/{id}','inactive_status')->name('inactive_our_services');
 
 
    });

@@ -90,13 +90,18 @@
               <p>About us  Text </p>
             </a>
           </li>
-                    <li class="nav-item">
+        <li class="nav-item">
             <a href="{{ route('view.social_links')}}" class="nav-link @yield('Social_links')">
               <i class="nav-icon far fa-building"></i>
               <p>Social links  </p>
             </a>
           </li>
-          
+          <li class="nav-item">
+            <a href="{{ route('view.our.services_page')}}" class="nav-link @yield('our_services')">
+              <i class="nav-icon far fa-building"></i>
+              <p>Manage Our Service</p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

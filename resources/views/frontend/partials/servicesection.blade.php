@@ -1,7 +1,9 @@
   <section>
-    @php 
-    $address = App\Models\Contact::first();
-    @endphp
+  @php 
+  $address = App\Models\Contact::first();
+  $About_Data  = App\Models\AboutData ::first();
+  $Our_services = App\Models\OurServices::first();
+  @endphp
     <div class="best_service_Col">
       <div class="container">
         <div class="row">
@@ -9,11 +11,10 @@
             <div class="best_service_text">
               <h3>We give the best Services </h3>
               <div class="elementor-widget-container">
-                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a
-                passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden.
+                {!!html_entity_decode($Our_services->para1)!!}
               </div>
               <div class="elementor-widget-container">
-                All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet
+                {!!html_entity_decode($Our_services->para2)!!}
               </div>
             </div>
             <div class="row">
@@ -25,7 +26,7 @@
               <div class="col">
                 <div class="text_page">
                   <p>
-                    Sed do eiusmod tempor incididunt ut
+                    {!!html_entity_decode($Our_services->para3)!!}
                   </p>
                 </div>
               </div>
@@ -39,7 +40,7 @@
               <div class="col">
                 <div class="text_page">
                   <p>
-                    Labore et dolore magna aliqua
+                    {!!html_entity_decode($Our_services->para4)!!}
                   </p>
                 </div>
               </div>
@@ -53,7 +54,7 @@
               <div class="col">
                 <div class="text_page">
                   <p>
-                    Sed do eiusmod tempor incididunt ut
+                    {!!html_entity_decode($Our_services->para5)!!}
                   </p>
                 </div>
               </div>
@@ -61,10 +62,10 @@
             <div class="mySwiper_two_div">
               <div class="swiper mySwiper_two">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide"><img src="assets/images/theme.jpg" alt=""></div>
-                  <div class="swiper-slide"><img src="assets/images/theme1.jpg" alt=""></div>
-                  <div class="swiper-slide"><img src="assets/images/theme2.jpg" alt=""></div>
-                  <div class="swiper-slide"><img src="assets/images/theme3.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="{{asset($Our_services->img1)}}" alt=""></div>
+                  <div class="swiper-slide"><img src="{{asset($Our_services->img2)}}" alt=""></div>
+                  {{-- <div class="swiper-slide"><img src="assets/images/theme2.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="assets/images/theme3.jpg" alt=""></div> --}}
                 </div>
                 <div class="swiper-pagination"></div>
               </div>
@@ -83,16 +84,32 @@
               </ul>
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lau dantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archi tecto beatae vitae dicta sunt explicabo.</p>
-                  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia conse quuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                  <p>
+                     {!!html_entity_decode($Our_services->homepara1)!!}
+                  </p>
+                  <p>
+                    {!!html_entity_decode($Our_services->homepara2)!!}
+                  </p>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia conse quuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lau dantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archi tecto beatae vitae dicta sunt explicabo.</p>
+                  <p>
+                    {!!html_entity_decode($Our_services->profilepara1)!!}
+
+                  </p>
+                  <p>
+                    {!!html_entity_decode($Our_services->profilepara2)!!}
+
+                  </p>
                 </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque lau dantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi archi tecto beatae vitae dicta sunt explicabo.</p>
-                  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia conse quuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                  <p>
+
+                    {!!html_entity_decode($Our_services->contactpara1)!!}
+                  </p>
+                  <p>
+                    {!!html_entity_decode($Our_services->contactpara2)!!}
+
+                  </p>
                 </div>
               </div>
             </div>
@@ -256,13 +273,13 @@
                     <p class="mb-3">View our 2020 Medical prospectus of brochure for an easy to read guide on all of the services offer. </p>
                   </div>
                   <div class="download_COl">
-                    <a href="#">
+                    <a href="{{asset($About_Data->brochure)}}" download="">
                       <i class="fa-solid fa-envelope"></i>
                       Download Brochure
                     </a>
                   </div>
                   <div class="download_COl mt-4">
-                    <a href="#">
+                    <a href="{{asset($About_Data->brochure)}}" download="">
                       <i class="fa-solid fa-file-pdf"></i>
                       Download Brochure
                     </a>
