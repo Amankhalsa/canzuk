@@ -1,5 +1,5 @@
 @extends('backend.admin.app')
-@section('title','Manage edit content')
+@section('title','Manage Edit content')
 @section('home_content_select','active')
 @section('content')
 <div class="content-wrapper">
@@ -33,7 +33,7 @@
               <div class="card-body ">
 
                 <!-- modal  -->
-                <a href="{{route('view.contact_address')}}">
+                <a href="{{route('view.home_content')}}">
 
                   <button type="button" class="btn btn-info"> Back</button>
                 </a>

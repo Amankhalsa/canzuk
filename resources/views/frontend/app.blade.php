@@ -21,8 +21,7 @@
   @php 
   $address = App\Models\Contact::first();
   $logo = App\Models\logoSeting::first();
-
-
+  $social = App\Models\SocialLinks::where('status',1)->get();
   @endphp
   <header>
     <div class="header_top_Col">
@@ -41,7 +40,7 @@
                   {{ $address->time}}
                 </li>
                 <li>
-                  <a href="#"><i class="fa-solid fa-location-dot"></i></a>
+                  <a href="https://goo.gl/maps/qciXU5mnKqYoVzMV8"><i class="fa-solid fa-location-dot"></i></a>
                   {{ $address->address}}
                 </li>
               </ul>
@@ -96,9 +95,15 @@
           <div class="col-auto d-none d-xl-block">
             <div class="iconCol_two">
               <ul>
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-google-plus"></i></a></li>
+                  
+                    @foreach($social as $values)
+                    @if (  $values->name != null)
+                    <li>
+                         <li><a href="{{$values->link}}"><i class="{{$values->icon}}"></i></a></li>
+                    </li>
+                    @endif
+                    @endforeach
+             
               </ul>
             </div>
           </div>
@@ -172,19 +177,22 @@
                     <p>{!!html_entity_decode($home_content->mission)!!} </p>
                   </div>
                   <div class="social_Col">
+                
+                      
                     <ul>
+   
+                      @foreach($social as $values)
+                      @if (  $values->name != null)
                       <li>
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                           <li><a href="{{$values->link}}"><i class="{{$values->icon}}"></i></a></li>
                       </li>
-                      <li>
-                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                      </li>
-                      <li>
-                      <a href="#">  <i class="fa-brands fa-instagram"></i></a>
-                      </li>
-                      <li>
-                      <a href="#">  <i class="fa-brands fa-google-plus"></i></a>
-                      </li>
+                      @endif
+                      @endforeach
+      
+      
+
+ 
+
                     </ul>
                   </div>
                 </div>

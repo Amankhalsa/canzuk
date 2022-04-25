@@ -10,24 +10,20 @@ use Image;
 
 class HomeAboutController extends Controller
 {
-    //
+    // auth
     public function __construct()
     {
         $this->middleware('auth');
     }
-
-    // View table 
+    // View table  support-text
     public function view_home_contact(){
         $get_data['home_data'] = HomeContent::get();
         return view('backend.home_data.view',$get_data);
 
     }
-
-
-
     // home data store 
     public function home_data_store(Request $request ){
-// dd($request->all());
+    // dd($request->all());
         $request->validate([
             'title' =>'required',
             'description' =>'required',
@@ -36,8 +32,6 @@ class HomeAboutController extends Controller
             'mission' =>'required',
             'whoweare' =>'required',
             ]);
-
-
             if($request->file('image')){
                 $slider_img =  $request->file('image');
                 $name_gen = hexdec(uniqid()).'.'.$slider_img->getClientOriginalExtension();

@@ -1,6 +1,6 @@
 @extends('backend.admin.app')
-@section('title','Manage Home services')
-@section('home_services','active')
+@section('title','Manage Countries section')
+@section('below_footer','active')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -33,7 +33,7 @@
               <div class="card-body ">
 
                 <!-- modal  -->
-                <a href="{{route('view.home_services')}}">
+                <a href="{{route('view.support_text')}}">
 
                   <button type="button" class="btn btn-info"> Back</button>
                 </a>

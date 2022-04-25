@@ -33,7 +33,7 @@
               <div class="card-body ">
 
                 <!-- modal  -->
-                <a href="{{route('view.home_services')}}">
+                <a href="{{route('view.about_data')}}">
 
                   <button type="button" class="btn btn-info"> Back</button>
                 </a>

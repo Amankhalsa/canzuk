@@ -10,7 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeAboutController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
-
+use App\Http\Controllers\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -205,5 +205,27 @@ Route::group(['prefix'=>'admin/about-us', 'middleware'=>['auth','isAdmin']], fun
         //    Route::get('delete/{id}','delete_home_services')->name('delete.home.services');
 
     });
+
+});
+
+// Socia link 
+Route::group(['prefix'=>'admin/social-links', 'middleware'=>['auth','isAdmin']], function(){
+   Route::controller(SocialController::class)->group(function () {
+       // view_home_contact
+          Route::get('view','social_links_data')->name('view.social_links');
+       // home_data_store
+         Route::post('store','social_links_store')->name('store.social_links');
+       // edit 
+         Route::get('edit/{id}','social_links_edit')->name('edit.social_links');
+       // update 
+         Route::post('update/{id}','social_links_update')->name('update.social_links');
+       // delete 
+      Route::get('delete/{id}','delete_socail')->name('delete.socail_links');
+
+      Route::get('active/{id}','active_status')->name('active_aocial_status');
+      Route::get('inactive/{id}','inactive_status')->name('inactive_aocial_status');
+
+
+   });
 
 });
